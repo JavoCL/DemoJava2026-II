@@ -43,8 +43,17 @@ public class Libro
         this.autor = autor;
     }
 
-    public void setPaginas(int paginas) {
+    public void setPaginas(int nuevaPaginas) {
         this.paginas = paginas;
+        if(nuevaPaginas > 0)
+        {
+            this.paginas = nuevaPaginas;
+        }
+        else
+        {
+            // Retorna 0 en caso que me equivoque en la entrada correcta del numero de paginas
+            this.paginas = 0;
+        }
     }
 
     // CONSTRUCTOR

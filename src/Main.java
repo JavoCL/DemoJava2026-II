@@ -11,4 +11,10 @@ void main() {
     miLibroFavorito.MostrarLibro();
     System.out.println("Este libro se publico el año " + miLibroFavorito.getAnio());
     System.out.println("El autor es: " + miLibroFavorito.getAutor().getNombre());
+
+    AudioLibro miAudioLibroFavorito = new AudioLibro("El Señor de los Anillos", autorFavorito,
+            2024, 1024, "Andy Serkis", 14400);
+
+    //miAudioLibroFavorito.MostrarAudioLibro();
+    miAudioLibroFavorito.MostrarLibro();
 }
