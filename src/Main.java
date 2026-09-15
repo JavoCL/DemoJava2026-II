@@ -17,4 +17,10 @@ void main() {
 
     //miAudioLibroFavorito.MostrarAudioLibro();
     miAudioLibroFavorito.MostrarLibro();
+
+    Autor homero = new Autor("Homero", "01/01/00", "griego");
+
+    Libro nuevoRecursoLibro = new Libro("La Odisea", homero, 1, 1000);
+    nuevoRecursoLibro.MostrarRecurso();
+    nuevoRecursoLibro.MostrarDetalles();
 }

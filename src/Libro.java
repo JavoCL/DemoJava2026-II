@@ -1,22 +1,12 @@
-public class Libro
+public class Libro extends Recurso
 {
     // ATRIBUTOS DE LA CLASE 'LIBRO'
-    private String titulo;
     private Autor autor;
-    private int anio;
     private int paginas;
 
     // GETTERS
-    public String getTitulo() {
-        return titulo;
-    }
-
     public Autor getAutor() {
         return autor;
-    }
-
-    public int getAnio() {
-        return anio;
     }
 
     public int getPaginas() {
@@ -24,21 +14,6 @@ public class Libro
     }
 
     // SETTERS
-    public void setTitulo(String nuevoTitulo) {
-        this.titulo = nuevoTitulo;
-    }
-
-    public void setAnio(int nuevoAnio) {
-        if(nuevoAnio >= 0)
-        {
-            this.anio = nuevoAnio;
-        }
-        else
-        {
-            this.anio = 2026;
-        }
-    }
-
     public void setAutor(Autor autor) {
         this.autor = autor;
     }
@@ -59,9 +34,8 @@ public class Libro
     // CONSTRUCTOR
     public Libro(String nuevoTitulo, Autor nuevoAutor, int nuevoAnio, int nuevaPaginas)
     {
-        this.setTitulo(nuevoTitulo);
+        super(nuevoTitulo,nuevoAnio);
         this.setAutor(nuevoAutor);
-        this.setAnio(nuevoAnio);
         this.setPaginas(nuevaPaginas);
     }
 
@@ -69,5 +43,11 @@ public class Libro
     public void MostrarLibro()
     {
         System.out.println("Este libro se define como: TITULO: " + this.getTitulo());
+    }
+
+    @Override
+    public void MostrarDetalles()
+    {
+        System.out.println("Los detalles del libro son:\n Autor: " + this.getAutor().getNombre() + "; Páginas: " + this.getPaginas());
     }
 }
