@@ -69,7 +69,7 @@ public class Pelicula extends Recurso{
 
     // region CONSTRUCTORES
     public Pelicula(String nuevoId, String nuevoTitulo, String nuevaFecha,
-                    Director nuevoDirector, String nuevoElenco, int nuevaDuracion, String nuevoGenero)
+                    Director nuevoDirector, String nuevoElenco, int nuevaDuracion, String nuevoGenero) throws ParametroVacioException
     {
         // Llamamos al constructor de la clase abstracta base 'Recurso'
         super(nuevoId, nuevoTitulo, nuevaFecha);

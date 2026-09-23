@@ -34,51 +34,54 @@ public abstract class Recurso {
     public void setTitulo(String nuevoTitulo) throws ParametroVacioException{
         if(nuevoTitulo == "")
         {
-            throw new ParametroVacioException();
+            // Arroja la excepcion con el mensaje y muere el setter
+            throw new ParametroVacioException("El titulo del recurso no debe ser vacío");
         }
 
-        if(nuevoTitulo != "")
-        {
-            this.titulo = nuevoTitulo;
-        }
-        else
-        {
-            // ERROR
-        }
+        // Si no arrojó excepcion, asigna el nuevo título
+        this.titulo = nuevoTitulo;
     }
 
     public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(String nuevaFecha) {
+    public void setFecha(String nuevaFecha) throws ParametroVacioException, FormatoFechaException
+    {
         if(nuevaFecha == "")
         {
-            // PENDIENTE: validar fecha
-            this.fecha = nuevaFecha;
+            // Arroja la excepcion si la fecha es vacía y muere el setter de fecha
+            throw new ParametroVacioException("La fecha del recurso no puede ser vacía");
         }
+
+        // SIMULAMOS comparar una fecha con cierto formato
+        if(ValidarFormatoFecha(nuevaFecha, "dd/mm/aa") == false)
+        {
+            throw new FormatoFechaException("El formato de fecha es inválido");
+        }
+
+        // Si no arrojó excepción, asigna la fecha
+        this.fecha = nuevaFecha;
     }
 
     // endregion
 
     // region CONSTRUCTORES
-    public Recurso(String nuevoId, String nuevoTitulo, String nuevaFecha)
+    public Recurso(String nuevoId, String nuevoTitulo, String nuevaFecha) throws ParametroVacioException, FormatoFechaException
     {
-        try
-        {
-            this.setId(nuevoId);
-            this.setTitulo(nuevoTitulo);
-            this.setFecha(nuevaFecha);
-        }
-        catch (ParametroVacioException e)
-        {
-            System.out.println("Error: " + e.getMessage());
-        }
-
+        this.setId(nuevoId);
+        this.setTitulo(nuevoTitulo);
+        this.setFecha(nuevaFecha);
     }
     // endregion
 
     // region METODOS
+
+    public Boolean ValidarFormatoFecha(String fecha, String formato)
+    {
+        // Simulamos la comparacion con el formato
+        return false;
+    }
 
     // endregion
 }

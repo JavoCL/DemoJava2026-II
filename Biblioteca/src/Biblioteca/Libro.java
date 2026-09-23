@@ -3,7 +3,7 @@ package Biblioteca;
 public class Libro extends Recurso{
 
     // region ATRIBUTOS
-    private String autor; // Autor del libro
+    private Autor autor; // Autor del libro
     private String editorial; // Editorial del libro
     private String isbn; // Código ISBN particular de la edición del libro
     private int paginas; // Cantidad de páginas del libro
@@ -11,12 +11,12 @@ public class Libro extends Recurso{
 
     // region GETTERS Y SETTERS
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
 
-    public void setAutor(String nuevoAutor) {
-        if(nuevoAutor != "")
+    public void setAutor(Autor nuevoAutor) {
+        if(nuevoAutor != null)
         {
             this.autor = nuevoAutor;
         }
@@ -75,7 +75,7 @@ public class Libro extends Recurso{
 
     // region CONSTRUCTOR
     public Libro(String nuevoId, String nuevoTitulo, String nuevaFecha,
-                 String nuevoAutor, String nuevaEditorial, String nuevoIsbn, int nuevasPaginas)
+                 Autor nuevoAutor, String nuevaEditorial, String nuevoIsbn, int nuevasPaginas) throws ParametroVacioException, FormatoFechaException
     {
         // Llamamos al constructor de la clase abstracta base 'Recurso'
         super(nuevoId,nuevoTitulo,nuevaFecha);

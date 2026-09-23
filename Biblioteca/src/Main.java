@@ -7,20 +7,37 @@ void main() {
     // to see how IntelliJ IDEA suggests fixing it.
     IO.println(String.format("Hello and welcome!"));
 
+    Autor kosemen = new Autor("C.M. Kosemen", "18/05/84", "", 42, "turco");
+
     // Ya no podemos crear objetos de la clase abstracta 'Recurso'
     //Recurso nuevoRecurso = new Recurso("A1", "Juego de Tronos", "2026");
-    Libro nuevoLibro = new Libro("A2", "All Tomorrows", "2007",
-                                    "C.M. Kosemen", "Time Publishing",
-                                    "9781806770021", 144);
+
+    try
+    {
+        Libro nuevoLibro = new Libro("A2", "All Tomorrows", "2007",
+                kosemen, "Time Publishing",
+                "9781806770021", 144);
+
+        // Test sobre la clase Libro
+        System.out.println("El titulo del libro es " + nuevoLibro.getTitulo());
+        System.out.println("El autor del libro es " + nuevoLibro.getAutor());
+        System.out.println("El libro es " + nuevoLibro.toString());
+    }
+    catch (ParametroVacioException e)
+    {
+        System.out.println("Error al crear Libro: " + e.getMessage());
+    }
+    catch (FormatoFechaException e)
+    {
+        System.out.println("Error al crear Libro: " + e.getMessage());
+    }
+
 
     // TESTEO SOBRE LA CLASE RECURSO
     // System.out.println("El titulo del recurso es " + nuevoRecurso.getTitulo());
     // System.out.println("El recurso es " + nuevoRecurso.toString());
 
-    // Test sobre la clase Libro
-    System.out.println("El titulo del libro es " + nuevoLibro.getTitulo());
-    System.out.println("El autor del libro es " + nuevoLibro.getAutor());
-    System.out.println("El libro es " + nuevoLibro.toString());
+
 
     // Generamos un nuevo objeto de la clase 'Director'
     Director nuevoDirector = new Director("James Cameron", "1954", "",
