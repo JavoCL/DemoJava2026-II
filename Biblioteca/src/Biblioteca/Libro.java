@@ -1,12 +1,15 @@
 package Biblioteca;
 
-public class Libro extends Recurso{
+public class Libro extends Recurso implements Prestable, Mostrable
+{
 
     // region ATRIBUTOS
+
     private Autor autor; // Autor del libro
     private String editorial; // Editorial del libro
     private String isbn; // Código ISBN particular de la edición del libro
     private int paginas; // Cantidad de páginas del libro
+
     // endregion
 
     // region GETTERS Y SETTERS
@@ -89,6 +92,18 @@ public class Libro extends Recurso{
     // endregion
 
     // region METODOS
+
+    @Override
+    public void Prestar(String usuario)
+    {
+        String mensaje = "El libro se prestó al usuario=" + usuario + ". Lo debe traer en 7 días más";
+    }
+
+    @Override
+    public void Mostrar()
+    {
+        String mensaje = "El libro se mostró a un usuario. Lo debe entregar al encargado al finalizar el día o antes de salir.";
+    }
 
     @Override
     public String toString() {

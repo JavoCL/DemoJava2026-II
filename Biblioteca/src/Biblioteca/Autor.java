@@ -31,8 +31,17 @@ public class Autor {
         return nacionalidad;
     }
 
-    public void setNombre(String nuevoNombre)
+    public void setNombre(String nuevoNombre) throws ParametroVacioException
     {
+        if(nuevoNombre == "")
+        {
+            throw new ParametroVacioException("El nombre del autor no puede ser vacío");
+        }
+
+        this.nombre = nuevoNombre;
+
+        /*
+
         if(nuevoNombre != "")
         {
             this.nombre = nuevoNombre;
@@ -40,7 +49,7 @@ public class Autor {
         else
         {
             // ERROR
-        }
+        }*/
     }
 
     public void setFechaNac(String nuevaFechaNac)
@@ -78,7 +87,7 @@ public class Autor {
 
     // region CONSTRUCTORES
 
-    public Autor(String nuevoNombre, String nuevaFechaNac, String nuevaFechaDef, int nuevaEdad, String nuevaNacionalidad)
+    public Autor(String nuevoNombre, String nuevaFechaNac, String nuevaFechaDef, int nuevaEdad, String nuevaNacionalidad) throws ParametroVacioException
     {
         this.setNombre(nuevoNombre);
         this.setFechaNac(nuevaFechaNac);

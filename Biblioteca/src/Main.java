@@ -7,13 +7,15 @@ void main() {
     // to see how IntelliJ IDEA suggests fixing it.
     IO.println(String.format("Hello and welcome!"));
 
-    Autor kosemen = new Autor("C.M. Kosemen", "18/05/84", "", 42, "turco");
+
 
     // Ya no podemos crear objetos de la clase abstracta 'Recurso'
     //Recurso nuevoRecurso = new Recurso("A1", "Juego de Tronos", "2026");
 
     try
     {
+        Autor kosemen = new Autor("C.M. Kosemen", "18/05/84", "", 42, "turco");
+
         Libro nuevoLibro = new Libro("A2", "All Tomorrows", "2007",
                 kosemen, "Time Publishing",
                 "9781806770021", 144);
@@ -37,23 +39,51 @@ void main() {
     // System.out.println("El titulo del recurso es " + nuevoRecurso.getTitulo());
     // System.out.println("El recurso es " + nuevoRecurso.toString());
 
-
-
     // Generamos un nuevo objeto de la clase 'Director'
     Director nuevoDirector = new Director("James Cameron", "1954", "",
-                                            "canadiense", 72);
+            "canadiense", 72);
 
-    Pelicula nuevaPelicula = new Pelicula("A3", "Titanic", "1998",
-                                    nuevoDirector, "Leo Dicaprio, Kate Winslet",
-                                            210, "drama");
+    // region Forma CORRECTA de manejar una excepcion
+    try
+    {
+        Pelicula nuevaPelicula = new Pelicula("A3", "Titanic", "1998",
+                nuevoDirector, "Leo Dicaprio, Kate Winslet",
+                210, "drama");
 
-    System.out.println("El titulo de la pelicula es " + nuevaPelicula.getTitulo());
-    System.out.println("El director de la pelicula es " + nuevaPelicula.getDirector());
-    System.out.println("El elenco de la pelicula es " + nuevaPelicula.getElenco());
-    System.out.println("La pelicula es " + nuevaPelicula.toString());
+        System.out.println("El titulo de la pelicula es " + nuevaPelicula.getTitulo());
+        System.out.println("El director de la pelicula es " + nuevaPelicula.getDirector());
+        System.out.println("El elenco de la pelicula es " + nuevaPelicula.getElenco());
+        System.out.println("La pelicula es " + nuevaPelicula.toString());
+    }
+    catch (ParametroVacioException e)
+    {
+        System.out.println("Error al crear Pelicula: " + e.getMessage());
+        // Llamar a codigo extra para manejar EXCLUSIVAMENTE el parametro vacio
+        // Ej: volver a pedir los datos e indicar el parametro que quedo vacio
+    }
+    catch (FormatoFechaException e)
+    {
+        System.out.println("Error al crear Pelicula: " + e.getMessage());
+        // Llamar a codigo extra para manejar EXCLUSIVAMENTE el mal formateo de fecha
+        // Ej: la pido de nuevo, genero un datePicker, etc
+    }
 
-    Pelicula otraPelicula = new Pelicula("A4", "Avatar", "2009",
-                                          nuevoDirector, "Sam Worthington, Zoe Saldaña",
-                            162, "C. Ficcion");
+    // endregion
+
+    // ------------------------------------------------------------
+
+    // region Forma INCORRECTA (o FLOJA) de manejar una excepcion
+    try
+    {
+        Pelicula otraPelicula = new Pelicula("A4", "Avatar", "2009",
+                nuevoDirector, "Sam Worthington, Zoe Saldaña",
+                162, "C. Ficcion");
+    }
+    catch(Exception e)
+    {
+        System.out.println("Error al crear Pelicula: " + e.getMessage());
+    }
+
+    // endregion
 
 }

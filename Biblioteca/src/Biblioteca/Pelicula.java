@@ -1,6 +1,6 @@
 package Biblioteca;
 
-public class Pelicula extends Recurso{
+public class Pelicula extends Recurso implements Prestable{
 
     // region ATRIBUTOS
     private Director director; // Director de la pelicula
@@ -69,7 +69,7 @@ public class Pelicula extends Recurso{
 
     // region CONSTRUCTORES
     public Pelicula(String nuevoId, String nuevoTitulo, String nuevaFecha,
-                    Director nuevoDirector, String nuevoElenco, int nuevaDuracion, String nuevoGenero) throws ParametroVacioException
+                    Director nuevoDirector, String nuevoElenco, int nuevaDuracion, String nuevoGenero) throws ParametroVacioException, FormatoFechaException
     {
         // Llamamos al constructor de la clase abstracta base 'Recurso'
         super(nuevoId, nuevoTitulo, nuevaFecha);
@@ -83,6 +83,12 @@ public class Pelicula extends Recurso{
     // endregion
 
     // region METODOS
+
+    @Override
+    public void Prestar(String usuario)
+    {
+        String mensaje = "La pelicula se prestó al usuario=" + usuario + ". Lo debe traer en 3 días más";
+    }
 
     @Override
     public String toString() {

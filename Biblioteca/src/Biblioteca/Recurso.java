@@ -3,11 +3,14 @@ package Biblioteca;
 // Definimos una clase abstracta que maneje los atributos y metodos básicos para cualquier
 // recurso bibliografico.
 // Existe sólo para ser heredada
-public abstract class Recurso {
+public abstract class Recurso
+{
     // region ATRIBUTOS
+
     private String id; // Identificador unico para el recurso bibliografico
     private String titulo; // Titulo del recurso bibliografico
     private String fecha; // Fecha de publicacion bibliografico
+
     // endregion
 
     // region GETTERS Y SETTERS
@@ -77,10 +80,11 @@ public abstract class Recurso {
 
     // region METODOS
 
+    // [METODO EN CONSTRUCCION]
     public Boolean ValidarFormatoFecha(String fecha, String formato)
     {
         // Simulamos la comparacion con el formato
-        return false;
+        return true;
     }
 
     // endregion
