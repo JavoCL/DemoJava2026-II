@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -22,7 +23,7 @@
       </Label>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER_LEFT">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
@@ -36,12 +37,59 @@
                   <Insets />
                </VBox.margin>
             </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <Label text="Editorial:" />
+                  <TextField fx:id="txtEditorial" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="132.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <Label text="ISBN:" />
+                  <TextField fx:id="txtIsbn" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="181.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <Label text="Páginas:" />
+                  <TextField fx:id="txtPaginas" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="215.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <Label text="Fecha Pub:" />
+                  <TextField fx:id="txtFechaPub" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <Label fx:id="lbMensaje" text="[titulo_libro_ingresado]" />
                   <Button fx:id="btnMostrarLibro" mnemonicParsing="false" onAction="#MostrarLibroClic" text="Mostrar libro" />
+                  <Button fx:id="btnCrearLibro" layoutX="236.0" layoutY="22.0" mnemonicParsing="false" onAction="#CrearLibroClic" text="Crear Libro" />
                </children>
             </HBox>
-         </children></VBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" />
+         </padding></VBox>
    </center>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbResultado" prefHeight="342.0" prefWidth="198.0" text="[Resultado]" wrapText="true" />
+         </children>
+      </Pane>
+   </right>
 </BorderPane>
