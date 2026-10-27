@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.gestorbibliotecafx.LibraryController">
+<!-- 'BorderPane' es un layout que divide la ventana en 5 regiones: superior, inferior, centrar, izquierda y derecha -->
+<!-- Como es el ancla (anchor o 'root') DEBE tener referencia al controlador de la vista.
+     En este caso es 'cl.duoc.gestorbibliotecafx.LibraryController'-->
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.gestorbibliotecafx.LibraryController">
    <!-- Region superior de BorderPane -->
    <top>
       <Label text="Sistema Gestion Biblioteca FX" textAlignment="CENTER" BorderPane.alignment="CENTER">
@@ -22,10 +21,16 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <!-- Region central de BorderPane -->
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER_LEFT">
+      <!-- VBox (Vertical Box) es un layout que permite ordenar los elementos hijos
+           de forma vertical. -->
+      <VBox prefHeight="200.0" prefWidth="0.0" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <!-- Controles para datos del libro -->
+            <!-- HBox (Horizontal Box) es un layout que permite ordenar los elementos hijos
+                 de forma horizontal. -->
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <Label text="Titulo del libro:" />
                   <TextField fx:id="txtTituloLibro" />
@@ -36,60 +41,87 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
-                  <Label text="Editorial:" />
+                  <Label prefHeight="18.0" prefWidth="78.0" text="Editorial:" />
                   <TextField fx:id="txtEditorial" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="132.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
-                  <Label text="ISBN:" />
+                  <Label prefHeight="18.0" prefWidth="77.0" text="ISBN:" />
                   <TextField fx:id="txtIsbn" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="181.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="181.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
-                  <Label text="Páginas:" />
+                  <Label prefHeight="18.0" prefWidth="76.0" text="Páginas:" />
                   <TextField fx:id="txtPaginas" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="215.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="215.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
-                  <Label text="Fecha Pub:" />
+                  <Label prefHeight="18.0" prefWidth="76.0" text="Fecha Pub:" />
                   <TextField fx:id="txtFechaPub" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <Label fx:id="lbMensaje" text="[titulo_libro_ingresado]" />
                   <Button fx:id="btnMostrarLibro" mnemonicParsing="false" onAction="#MostrarLibroClic" text="Mostrar libro" />
                   <Button fx:id="btnCrearLibro" layoutX="236.0" layoutY="22.0" mnemonicParsing="false" onAction="#CrearLibroClic" text="Crear Libro" />
                </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
             </HBox>
          </children>
          <padding>
             <Insets bottom="50.0" />
          </padding></VBox>
    </center>
+   <!-- Region derecha de BorderPane -->
    <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <!-- 'Pane' simple, que contiene los resultados -->
+      <Pane prefHeight="342.0" prefWidth="247.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lbResultado" prefHeight="342.0" prefWidth="198.0" text="[Resultado]" wrapText="true" />
+            <!-- Label de resultados -->
+            <Label fx:id="lbResultado" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="312.0" prefWidth="244.0" text="[Resultado]" wrapText="true">
+               <font>
+                  <Font size="19.0" />
+               </font></Label>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" right="30.0" />
+         </BorderPane.margin>
       </Pane>
    </right>
 </BorderPane>
