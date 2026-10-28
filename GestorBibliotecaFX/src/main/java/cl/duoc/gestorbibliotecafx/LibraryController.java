@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -16,7 +17,7 @@ import cl.duoc.gestorbiblioteca.*;
 
 public class LibraryController implements Initializable
 {
-    // Se establecen cuáles son las referencias a los controles
+    // Se establecen cuáles son las referencias a los controles de UI
     // en la vista asociada.
     // IMPORTANTE💡: Deben llevar el tag '@FXML' y el mismo nombre
     // de id que en la vista
@@ -30,6 +31,7 @@ public class LibraryController implements Initializable
     @FXML public TextField txtFechaPub; // Textfield de la fecha de publicación
     @FXML public Label lbResultado; // Label del resultado al crear libro
     @FXML public Button btnCrearLibro; // Boton para crear el nuevo objeto de la clase 'Libro'
+    @FXML public ComboBox cbGenero;
 
     // Autor por defecto. Elegimos un anónimo
     private Autor autorAnonimo;
@@ -46,6 +48,7 @@ public class LibraryController implements Initializable
         // Dejo los labels de mensaje y resultado en vacío
         lbMensaje.setText("");
         lbResultado.setText("");
+        cbGenero.getItems().addAll(Libro.generos);
 
         // Intento crear un nuevo autor (por ahora "anonimo")
         try{
@@ -86,7 +89,7 @@ public class LibraryController implements Initializable
         {
             // Si no lanza excepción, lo crea
             libroEjemplo = new Libro("A15", txtTituloLibro.getText(),txtFechaPub.getText(),
-                    autorAnonimo,txtEditorial.getText(),txtIsbn.getText(), Integer.parseInt(txtPaginas.getText()));
+                    autorAnonimo,txtEditorial.getText(),txtIsbn.getText(), Integer.parseInt(txtPaginas.getText()), cbGenero.getValue().toString());
             // ... y luego muestra el mensaje en el label 'lbResultado'
             lbResultado.setText(libroEjemplo.toString());
         }

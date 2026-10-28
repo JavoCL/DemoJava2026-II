@@ -15,7 +15,7 @@ public class LibraryApplication extends Application {
         // FXMLLoader será el encargado de cargar la vista indicada
         FXMLLoader fxmlLoader = new FXMLLoader(LibraryApplication.class.getResource("library-view.fxml"));
         // La escena será levantada basándose en el resultado del FXMLLoader
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         // Se le indica un título a la ventana general del programa (ó 'Stage')
         stage.setTitle("Gestor Biblioteca FX");
         // Se establece la escena a mostrar en la ventana del programa

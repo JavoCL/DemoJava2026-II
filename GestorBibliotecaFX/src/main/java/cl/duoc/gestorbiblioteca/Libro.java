@@ -9,6 +9,7 @@ public class Libro extends Recurso implements Prestable, Mostrable
     private String editorial; // Editorial del libro
     private String isbn; // Código ISBN particular de la edición del libro
     private int paginas; // Cantidad de páginas del libro
+    private String genero; // Genero del libro
 
     // endregion
 
@@ -74,11 +75,27 @@ public class Libro extends Recurso implements Prestable, Mostrable
         }
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String nuevoGenero) {
+        if(ValidaGenero(nuevoGenero) == false)
+        {
+            // Comentario o Excepcion
+            return;
+        }
+
+        // Sino, asigna el nuevo genero
+        this.genero = nuevoGenero;
+    }
+
     // endregion
 
     // region CONSTRUCTOR
     public Libro(String nuevoId, String nuevoTitulo, String nuevaFecha,
-                 Autor nuevoAutor, String nuevaEditorial, String nuevoIsbn, int nuevasPaginas) throws ParametroVacioException, FormatoFechaException
+                 Autor nuevoAutor, String nuevaEditorial, String nuevoIsbn,
+                 int nuevasPaginas, String nuevoGenero) throws ParametroVacioException, FormatoFechaException
     {
         // Llamamos al constructor de la clase abstracta base 'Recurso'
         super(nuevoId,nuevoTitulo,nuevaFecha);
@@ -88,6 +105,7 @@ public class Libro extends Recurso implements Prestable, Mostrable
         this.setEditorial(nuevaEditorial);
         this.setIsbn(nuevoIsbn);
         this.setPaginas(nuevasPaginas);
+        this.setGenero(nuevoGenero);
     }
     // endregion
 
@@ -112,10 +130,26 @@ public class Libro extends Recurso implements Prestable, Mostrable
                 ", fecha='" + this.getFecha() + '\'' +
                 ", autor='" + autor + '\'' +
                 ", editorial='" + editorial + '\'' +
+                ", género='" + genero + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", paginas=" + paginas +
                 '}';
     }
 
+    private boolean ValidaGenero(String generoV){
+        for(int i=0; i<generos.length;i++)
+        {
+            if(generoV.equals(generos[i]))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // endregion
+
+    public static String[] generos =
+            {"Ficción", "Terror", "Drama", "Ciencia", "Fantasía", "Politico", "Thriller", "Infantil"};
 }
