@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.gestorbibliotecafx.controller.AgregarLibroController">
+      <children>
+          <!-- VBox (Vertical Box) es un layout que permite ordenar los elementos hijos
+                 de forma vertical. -->
+          <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" spacing="5.0">
+              <children>
+            <HBox layoutX="10.0" layoutY="240.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <Button fx:id="btnVolver" layoutX="236.0" layoutY="22.0" mnemonicParsing="false" onAction="#Volver" text="&lt; volver" wrapText="true" />
+               </children>
+               <padding>
+                  <Insets bottom="25.0" left="25.0" />
+               </padding>
+            </HBox>
+                  <!-- Controles para datos del libro -->
+                  <!-- HBox (Horizontal Box) es un layout que permite ordenar los elementos hijos
+                       de forma horizontal. -->
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Label text="Titulo del libro:" />
+                          <TextField fx:id="txtTituloLibro" />
+                      </children>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                      <VBox.margin>
+                          <Insets />
+                      </VBox.margin>
+                      <padding>
+                          <Insets left="30.0" />
+                      </padding>
+                  </HBox>
+               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                  <children>
+                     <Label prefHeight="18.0" prefWidth="78.0" text="Autor" />
+                     <ComboBox fx:id="cbAutor" prefWidth="150.0" promptText="Seleccione autor" />
+                  </children>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+                  <padding>
+                     <Insets left="30.0" />
+                  </padding>
+               </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="82.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Label prefHeight="18.0" prefWidth="78.0" text="Editorial:" />
+                          <TextField fx:id="txtEditorial" />
+                      </children>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                      <padding>
+                          <Insets left="30.0" />
+                      </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="152.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Label prefHeight="18.0" prefWidth="77.0" text="Género:" />
+                          <ComboBox fx:id="cbGenero" prefWidth="150.0" promptText="Seleccione género" />
+                      </children>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                      <padding>
+                          <Insets left="30.0" />
+                      </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Label prefHeight="18.0" prefWidth="77.0" text="ISBN:" />
+                          <TextField fx:id="txtIsbn" />
+                      </children>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                      <padding>
+                          <Insets left="30.0" />
+                      </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="181.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Label prefHeight="18.0" prefWidth="76.0" text="Páginas:" />
+                          <TextField fx:id="txtPaginas" />
+                      </children>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                      <padding>
+                          <Insets left="30.0" />
+                      </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="215.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Label prefHeight="18.0" prefWidth="76.0" text="Fecha Pub:" />
+                          <TextField fx:id="txtFechaPub" />
+                      </children>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                      <padding>
+                          <Insets left="30.0" />
+                      </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                      <children>
+                          <Button fx:id="btnCrearLibro" layoutX="236.0" layoutY="22.0" mnemonicParsing="false" onAction="#CrearLibro" text="Crear Libro" wrapText="true" />
+                      </children>
+                      <padding>
+                          <Insets left="30.0" right="25.0" top="20.0" />
+                      </padding>
+                  </HBox>
+              </children>
+            <padding>
+               <Insets bottom="25.0" top="25.0" />
+            </padding>
+         </VBox>
+      </children>
+   </StackPane>
