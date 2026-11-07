@@ -112,4 +112,7 @@ public class Autor {
     }
 
     // endregion
+
+    public static String[] NACIONALIDADES =
+            {"chilena", "española", "estadounidense", "inglesa", "neozelandesa", "italiana", "argentina", "brasileña", "senegalesa"};
 }
